@@ -1,0 +1,63 @@
+# Importing Time module
+import time
+# Making a heading for my calculator
+print("\n\t\t\t\t\t\t\t\t\t\t\t\tCALCULATOR")
+
+# Explaining rules.
+# time.sleep() is for waiting a few seconds before moving on to the next line.
+print("\nI will ask for two numbers.")
+time.sleep(1)
+print("After that, you need to give an operator.")
+time.sleep(1)
+print("These may be '+', '-', '/', '*', '**', 'square'.")
+time.sleep(1)
+print("'+' for addition, '-' for subtraction, '/' for division, '*' for multiplication, '**' for power, 'square' for square.")
+# Making a list of useable operators.
+oper = ["+", "-", "/", "*", "**", "square"]
+loop = True
+# While true loop.
+while loop:
+    # Taking number 1 input. Also taking the operator input.
+    num1 = int(input("Enter a number: "))
+    operator = input("Enter an operator from the list above.")
+    # Making the operator input lower because of the 'square' operator.
+    operator = operator.lower()
+    # If statement for square operator so the number 2 input won't be needed.
+    if operator == "square":
+        print(num1*num1)
+        loop = False
+        break
+    # Number 2 input.
+    num2 = int(input("Enter another number: "))
+
+    # First if statement will check if the operator input has anything which was in the 'oper' list above.
+    if operator in oper:
+        # Making the plus function work.
+        if operator == "+":
+            print(num1+num2)
+            loop = False
+        # Making the minus function work.
+        elif operator == "-":
+            print(num1-num2)
+            loop = False
+        # Making the division function work.
+        elif operator == "/":
+            print(num1/num2)
+            loop = False
+        # Making the multiply function work.
+        elif operator == "*":
+            print(num1*num2)
+            loop = False
+        # Making the power function work.
+        elif operator == "**":
+            print(num1**num2)
+            loop = False
+            
+   
+    # If the operator input given is not from the oper list, it will give an error statement.
+    elif operator not in oper:
+        print("Invalid operator. Choose one from the list given above.")
+        
+# Whenever I did 'loop = False', this means that the while loop will be broken.
+# You can also do it with the 'break' keyword. 
+# You can replace 'loop = False' by 'break' and it will work fine. But it is not a proper practice.
